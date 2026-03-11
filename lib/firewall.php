@@ -5,26 +5,9 @@ if (!defined("WHMCS")) {
 }
 
 function setup_firewall($zone,$token){
-
-cf_api(
-
-"zones/$zone/firewall/rules",
-
-"POST",
-
-[
-"action"=>"block",
-
-"filter"=>[
-"expression"=>"(http.request.uri.path contains \"wp-login.php\")"
-],
-
-"description"=>"WordPress brute force protection"
-
-],
-
-$token
-
-);
-
+    cf_api("zones/$zone/firewall/rules","POST",[
+        "action"=>"block",
+        "filter"=>["expression"=>"(http.request.uri.path contains \"wp-login.php\")"],
+        "description"=>"Block WordPress brute force"
+    ], $token);
 }
