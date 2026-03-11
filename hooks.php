@@ -1,3 +1,13 @@
+<?php
+
+use WHMCS\Database\Capsule;
+
+require_once __DIR__.'/api.php';
+require_once __DIR__.'/lib/dns.php';
+require_once __DIR__.'/lib/ssl.php';
+require_once __DIR__.'/lib/cache.php';
+require_once __DIR__.'/lib/firewall.php';
+
 add_hook('AfterModuleCreate',1,function($params){
 
 $domain=$params['domain'];
@@ -11,6 +21,7 @@ $token=$settings['apitoken'];
 $account=$settings['accountid'];
 
 $zone=cf_api(
+
 "zones",
 "POST",
 [
@@ -18,8 +29,14 @@ $zone=cf_api(
 "account"=>["id"=>$account],
 "jump_start"=>true
 ],
+
 $token
+
 );
+
+if(!$zone['success']){
+return;
+}
 
 $zoneid=$zone['result']['id'];
 
