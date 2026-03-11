@@ -1,11 +1,11 @@
+<?php
+
 function create_dns($zone,$domain,$ip,$token){
 
 cf_api(
 
 "zones/$zone/dns_records",
-
 "POST",
-
 [
 "type"=>"A",
 "name"=>$domain,
@@ -13,17 +13,13 @@ cf_api(
 "ttl"=>1,
 "proxied"=>true
 ],
-
 $token
-
 );
 
 cf_api(
 
 "zones/$zone/dns_records",
-
 "POST",
-
 [
 "type"=>"CNAME",
 "name"=>"www",
@@ -31,7 +27,18 @@ cf_api(
 "ttl"=>1,
 "proxied"=>true
 ],
+$token
+);
 
+}
+
+function get_dns_records($zone,$token){
+
+return cf_api(
+
+"zones/$zone/dns_records",
+"GET",
+[],
 $token
 
 );
