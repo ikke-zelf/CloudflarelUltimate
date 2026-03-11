@@ -1,5 +1,9 @@
 <?php
 
+if (!defined("WHMCS")) {
+    die("Access denied");
+}
+
 function purge_cache($zone,$token){
 
 cf_api(
