@@ -1,16 +1,6 @@
 <?php
+if(!defined("WHMCS")) die("Access denied");
+require_once __DIR__.'/../lib/dns.php';
 
-if (!defined("WHMCS")) {
-    die("Access denied");
-}
-$records = cf_api(
-
-"zones/$zoneid/dns_records",
-
-"GET",
-
-[],
-
-$token
-
-);
+$records = get_dns_records($zoneid,$token);
+$smarty->assign("records",$records['result'] ?? []);
