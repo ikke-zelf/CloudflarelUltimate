@@ -1,5 +1,9 @@
 <?php
 
+if (!defined("WHMCS")) {
+    die("Access denied");
+}
+
 require_once __DIR__ . '/../lib/analytics.php';
 
 $stats = get_cf_analytics($zoneid, $token);
