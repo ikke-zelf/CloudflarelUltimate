@@ -1,13 +1,10 @@
-cf_api(
+<?php
+if(!defined("WHMCS")) die("Access denied");
+require_once __DIR__.'/../lib/cache.php';
 
-"zones/$zone/purge_cache",
+$zone = $_POST['zone'] ?? '';
+$token = $_POST['token'] ?? '';
 
-"POST",
+purge_cache($zone,$token);
 
-[
-"purge_everything"=>true
-],
-
-$token
-
-);
+echo json_encode(["success"=>true]);
