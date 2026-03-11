@@ -10,9 +10,7 @@ curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch,CURLOPT_CUSTOMREQUEST,$method);
 
 if(!empty($data)){
-
 curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($data));
-
 }
 
 curl_setopt($ch,CURLOPT_HTTPHEADER,[
