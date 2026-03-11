@@ -1,27 +1,15 @@
-function setup_cache($zone,$token){
+<?php
+
+function purge_cache($zone,$token){
 
 cf_api(
 
-"zones/$zone/settings/cache_level",
+"zones/$zone/purge_cache",
 
-"PATCH",
-
-[
-"value"=>"standard"
-],
-
-$token
-
-);
-
-cf_api(
-
-"zones/$zone/settings/brotli",
-
-"PATCH",
+"POST",
 
 [
-"value"=>"on"
+"purge_everything"=>true
 ],
 
 $token
