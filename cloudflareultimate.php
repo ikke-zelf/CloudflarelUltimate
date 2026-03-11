@@ -8,7 +8,7 @@ function cloudflareultimate_config()
 {
     return [
         "name" => "Cloudflare Ultimate v2",
-        "description" => "Cloudflare automation + DNS manager",
+        "description" => "Cloudflare automation, DNS, SSL, Firewall, Cache manager",
         "version" => "2.0",
         "author" => "Ikkezelf",
 
