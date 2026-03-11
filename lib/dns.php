@@ -1,5 +1,9 @@
 <?php
 
+if (!defined("WHMCS")) {
+    die("Access denied");
+}
+
 function create_dns($zone,$domain,$ip,$token){
 
 cf_api(
