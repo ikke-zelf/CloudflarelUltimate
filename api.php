@@ -1,5 +1,9 @@
 <?php
 
+if (!defined("WHMCS")) {
+    die("Access denied");
+}
+
 function cf_api($endpoint,$method="GET",$data=[],$token="")
 {
 
