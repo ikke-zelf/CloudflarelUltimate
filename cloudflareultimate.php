@@ -7,11 +7,10 @@ if (!defined("WHMCS")) {
 function cloudflareultimate_config()
 {
     return [
-
-        "name" => "Cloudflare Ultimate",
-        "description" => "Cloudflare automation and DNS manager",
-        "version" => "1.0",
-        "author" => "Custom",
+        "name" => "Cloudflare Ultimate v2",
+        "description" => "Cloudflare automation + DNS manager",
+        "version" => "2.0",
+        "author" => "Ikkezelf",
 
         "fields" => [
 
@@ -22,12 +21,11 @@ function cloudflareultimate_config()
             ],
 
             "accountid" => [
-                "FriendlyName" => "Cloudflare Account ID",
+                "FriendlyName" => "Account ID",
                 "Type" => "text",
                 "Size" => "40"
             ]
 
         ]
-
     ];
 }
