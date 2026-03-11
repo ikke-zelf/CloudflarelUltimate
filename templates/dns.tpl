@@ -7,8 +7,6 @@
 <th>Name</th>
 <th>Content</th>
 <th>TTL</th>
-<th>Proxy</th>
-<th>Action</th>
 </tr>
 
 {foreach $records as $record}
@@ -19,16 +17,6 @@
 <td>{$record.name}</td>
 <td>{$record.content}</td>
 <td>{$record.ttl}</td>
-<td>{$record.proxied}</td>
-
-<td>
-
-<button class="deleteDNS"
-data-id="{$record.id}">
-Delete
-</button>
-
-</td>
 
 </tr>
 
